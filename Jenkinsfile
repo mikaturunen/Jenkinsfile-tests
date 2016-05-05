@@ -9,8 +9,8 @@ node {
     sh "docker rm node | exit 0"
     sh "docker run -di -v /home/docker/jenkins_home/workspace/node/helloworld/:/var/nodebuild -w /var/nodebuild --name node nodebuild"
     sh "echo Docker up and running with volume mounted."
-    sh "echo env.GIT_BRANCH"
-    sh "echo env"
+    sh "echo $BRANCH_NAME"
+    sh "echo BRANCH_NAME $WORKSPACE"
     
   stage "NPM"
     sh "echo installing npm dependencies..."
