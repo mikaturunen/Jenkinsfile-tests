@@ -10,6 +10,7 @@ node {
     // The exit 0 makes sure that if the containers are already removed/down, the build continues
     sh 'docker stop node | exit 0'
     sh 'docker rm node | exit 0'
+    // the path provided for workspace/job is not the path INSIDE the Jenkins container but the path on the actual host the Jenkins container is running on -- UGH!
     sh 'docker run -di -v /home/docker/jenkins_home/workspace/$JOB_NAME/:/var/nodebuild -w /var/nodebuild --name node nodebuild'
     sh 'echo Docker up and running with volume mounted.'
 
