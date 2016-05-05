@@ -1,11 +1,5 @@
 
 node {
-  def build = Thread.currentThread().toString()
-  def regexp= ".+?/job/([^/]+)/.*"  
-  def match = build  =~ regexp
-  def jobName = match[0][1]
-  env.JOB_NAME_TEST = jobname
-
   stage 'Pull'
     checkout scm
   
