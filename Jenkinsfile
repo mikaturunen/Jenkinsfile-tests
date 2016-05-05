@@ -3,7 +3,7 @@ node {
   stage 'Pull'
     checkout scm
     sh 'echo On branch: $BRANCH_NAME'
-    sh 'echo Job name: $JOB_NAME''
+    sh 'echo Job name: $JOB_NAME'
 
     
   stage 'Init docker'
