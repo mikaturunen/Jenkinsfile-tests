@@ -12,6 +12,7 @@ node {
     
   stage "NPM"
     sh "echo installing npm dependencies..."
+    sh "ls"
   
   stage "Bower"
     sh "echo installing bower dependencies..."
