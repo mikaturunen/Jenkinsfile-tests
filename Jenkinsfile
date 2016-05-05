@@ -1,21 +1,27 @@
 
 node {
-  stage "Pull"
+  def build = Thread.currentThread().toString()
+  def regexp= ".+?/job/([^/]+)/.*"  
+  def match = build  =~ regexp
+  def jobName = match[0][1]
+  env.JOB_NAME_TEST = jobname
+
+  stage 'Pull'
     checkout scm
   
-  stage "Init docker"
+  stage 'Init docker'
     // The exit 0 makes sure that if the containers are already removed/down, the build continues
     sh 'docker stop node | exit 0'
     sh 'docker rm node | exit 0'
     sh 'docker run -di -v /home/docker/jenkins_home/workspace/node/helloworld/:/var/nodebuild -w /var/nodebuild --name node nodebuild'
     sh 'echo Docker up and running with volume mounted.'
     sh 'echo $BRANCH_NAME'
-    sh 'echo BRANCH_NAME $WORKSPACE'
+    sh 'echo Job $JOB_NAME $JOB_NAME_TEST'
     
-  stage "NPM"
+  stage 'NPM'
     sh 'echo installing npm dependencies...'
     sh 'docker exec node ls'
   
-  stage "Bower"
+  stage 'Bower'
     sh 'echo installing bower dependencies...'
 }
