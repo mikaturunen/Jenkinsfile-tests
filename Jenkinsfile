@@ -11,7 +11,7 @@ node {
     sh 'docker stop node | exit 0'
     sh 'docker rm node | exit 0'
     // the path provided for workspace/job is not the path INSIDE the Jenkins container but the path on the actual host the Jenkins container is running on -- UGH!
-    sh 'docker run -di -v /home/docker/jenkins_home/workspace/$JOB_NAME/:/var/nodebuild -w /var/nodebuild --name node nodebuild'
+    sh 'docker run -di -v /home/docker/jenkins_home/workspace/$JOB_NAME/:/var/nodebuild -w /var/nodebuild --name node mhart/alpine-node:5.1.1'
     sh 'echo Docker up and running with volume mounted.'
 
     
