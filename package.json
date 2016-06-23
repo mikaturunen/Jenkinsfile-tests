@@ -1,0 +1,22 @@
+{
+  "name": "jenkinsfile-tests",
+  "version": "1.0.0",
+  "description": "Simply repo to test Jenkinsfile along with Jenkins2.0 pipeline support",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaturunen/Jenkinsfile-tests.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikaturunen/Jenkinsfile-tests/issues"
+  },
+  "homepage": "https://github.com/mikaturunen/Jenkinsfile-tests#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
